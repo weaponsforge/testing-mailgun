@@ -7,7 +7,7 @@ function HomePage () {
     <Page>
       <Typography variant='h5'>Home</Typography>
       <Typography variant='body1'>
-        This test website is to be used for testing various DOM input and server-side stuff.
+        Test website for testing various DOM input and server-side stuff.
       </Typography>
     </Page>
   )
