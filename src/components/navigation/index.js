@@ -16,7 +16,7 @@ function Navigation () {
           <Typography variant='h4'>Dev Testing Site</Typography>
           <Link to='/'>
             <Typography variant='subtitle1' component='span'>Home</Typography>
-          </Link> | &nbsp;
+          </Link> &nbsp;| &nbsp;
           <Link to='/email'>
             <Typography variant='subtitle1' component='span'>Email</Typography>
           </Link>
