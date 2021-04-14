@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navigation from './components/navigation'
 import routes from './routes'
 
-
-function App(props) {
+function App (props) {
   return (
     <Router>
       <Navigation />
@@ -15,4 +14,4 @@ function App(props) {
   )
 }
 
-export default App;
+export default App
