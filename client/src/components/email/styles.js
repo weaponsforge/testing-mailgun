@@ -11,6 +11,12 @@ const useStyles = makeStyles((theme) => ({
   },
   textArea: {
     marginTop: theme.spacing(2)
+  },
+  success: {
+    color: theme.palette.secondary.main
+  },
+  error: {
+    color: 'red'
   }
 }))
 
