@@ -2,6 +2,23 @@
 
 > Testing mailgun for sending and keeping track of emails.
 
+### Requirements
+
+- NodeJS version 12.16.3 or higher
+
+### Content
+
+- [Installation](#installation)
+- [client](#client)
+- [server](#server)
+
+## Installation
+
+1. Clone this repository.
+`git clone https://github.com/weaponsforge/testing-mailgun/tree/express-server.git`
+2. Install dependencies.
+`npm install`
+
 # client
 
 **Directory:** `/client`
