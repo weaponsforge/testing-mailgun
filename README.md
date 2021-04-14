@@ -2,16 +2,15 @@
 
 > Testing mailgun for sending and keeping track of emails.
 
-@weaponsforge  
-20210414
+## client
 
-## Getting Started with Create React App
+**Directory:** `/client`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the `client` project directory, you can run:
 
 ### `npm start`
 
@@ -30,3 +29,15 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+## server
+
+**Directory:** `/server`
+
+### `npm start`
+
+Run the local express server. Requires the `/build` output from the client `npm run build` script.
+
+@weaponsforge  
+20210414
+
