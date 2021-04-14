@@ -51,15 +51,22 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 # server
 
-Local express server for hosting the built client files and running other backend api.
-
 **Directory:** `/server`
+
+Local express server for hosting the built client files and running other backend api.\
+**Base API url:** http://localhost:3001/api
+
+
 
 ## Available Scripts
 
 ### `npm start`
 
-Run the local express server. Requires the `/build` output from the client `npm run build` script.
+Run the local express server for production environment. Requires the `/build` output from the client `npm run build` script.
+
+### `npm run dev`
+
+Run the local express server for development environment.
 
 @weaponsforge  
 20210414
