@@ -17,6 +17,11 @@ const useStyles = makeStyles((theme) => ({
   },
   error: {
     color: 'red'
+  },
+  progress: {
+    position: 'absolute',
+    width: theme.spacing(3),
+    height: theme.spacing(3)
   }
 }))
 

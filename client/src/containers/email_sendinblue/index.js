@@ -27,9 +27,10 @@ function EmailSendinblueContainer () {
     console.log(state)
 
     try {
+      setState(prev => ({ ...prev, loading: true }))
       await axios.post('http://localhost:3001/api/sendinblue', state)
     } catch (err) {
-      msg = `Error: ${err.response.data}`
+      msg = (err.response) ? `Error: ${err.response.data}` : `Error: ${err.message}`
     }
 
     setState(prev => ({ ...defaultState, msg }))

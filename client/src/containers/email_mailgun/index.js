@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import Email from '../../components/email'
+import Email from '../../components/email_mailgun'
 
 const defaultState = {
-  message: '', email: '', subject: '', msg: 'Mailgun Testing', loading: false
+  message: '', email: '', subject: 'Mailgun Testing', msg: '', loading: false
 }
 
-function EmailContainer () {
+function EmailMailgunContainer () {
   const [state, setState] = useState(defaultState)
 
   const handleChange = (e) => {
@@ -24,12 +24,12 @@ function EmailContainer () {
 
   const handleSubmit = async () => {
     let msg = 'Email sent.'
-    console.log(state)
 
     try {
+      setState(prev => ({ ...prev, loading: true }))
       await axios.post('http://localhost:3001/api/mailgun', state)
     } catch (err) {
-      msg = `Error: ${err.response.data}`
+      msg = (err.response) ? `Error: ${err.response.data}` : `Error: ${err.message}`
     }
 
     setState(prev => ({ ...defaultState, msg }))
@@ -45,4 +45,4 @@ function EmailContainer () {
   )
 }
 
-export default EmailContainer
+export default EmailMailgunContainer

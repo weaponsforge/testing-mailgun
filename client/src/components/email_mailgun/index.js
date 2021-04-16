@@ -2,12 +2,13 @@ import React from 'react'
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import Button from '@material-ui/core/button'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import Page from '../page'
 import useStyles from './styles'
 
-function Email ({ state, handleSubmit, handleChange, handleClear }) {
+function EmailMailgun ({ state, handleSubmit, handleChange, handleClear }) {
   const classes = useStyles()
 
   return (
@@ -26,6 +27,7 @@ function Email ({ state, handleSubmit, handleChange, handleClear }) {
         variant='outlined'
         rows={10}
         fullWidth
+        disabled={state.loading}
         onChange={(e) => handleChange(e)}
         value={state.email}
       />
@@ -39,6 +41,7 @@ function Email ({ state, handleSubmit, handleChange, handleClear }) {
         variant='outlined'
         rows={10}
         fullWidth
+        disabled={state.loading}
         onChange={(e) => handleChange(e)}
         value={state.subject}
       />
@@ -52,6 +55,7 @@ function Email ({ state, handleSubmit, handleChange, handleClear }) {
         multiline
         rows={10}
         fullWidth
+        disabled={state.loading}
         onChange={(e) => handleChange(e)}
         value={state.message}
       />
@@ -60,14 +64,19 @@ function Email ({ state, handleSubmit, handleChange, handleClear }) {
         <Button
           size='medium'
           color='primary'
+          disabled={state.loading}
           onClick={() => handleClear()}
         >Clear</Button>
         <Button
           variant='contained'
           size='medium'
           color='primary'
+          disabled={state.loading}
           onClick={() => handleSubmit()}
-        >Submit</Button>
+        > Submit
+          {state.loading &&
+          <CircularProgress size={24} className={classes.progress} />}
+        </Button>
       </div>
 
       {state.msg !== '' &&
@@ -81,7 +90,7 @@ function Email ({ state, handleSubmit, handleChange, handleClear }) {
   )
 }
 
-Email.propTypes = {
+EmailMailgun.propTypes = {
   /** Current email object values. */
   state: PropTypes.object,
   /** Handle the submit button click. */
@@ -92,4 +101,4 @@ Email.propTypes = {
   handleClear: PropTypes.func
 }
 
-export default Email
+export default EmailMailgun
