@@ -16,14 +16,13 @@ module.exports.post = async (req, res) => {
 
   const data = {
     from: `admin@${process.env.MAILGUN_DOMAIN}`,
-    to: process.env.SENDING_EMAIL_ADDRESS,
+    to: email,
     subject,
     text: message
   }
 
   try {
     await mg.messages().send(data)
-    console.log('done')
   } catch (err) {
     return res.status(500).send(err.message)
   }
