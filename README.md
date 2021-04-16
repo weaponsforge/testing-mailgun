@@ -9,6 +9,7 @@
 ### Content
 
 - [Installation](#installation)
+- [Usage](#usage)
 - [client](#client)
 - [server](#server)
 
@@ -28,6 +29,21 @@
    ```
    cd server
    npm install
+   ```
+
+## Usage
+
+Start the client and server for development mode.
+
+1. Start the localhost api server.  
+   ```
+   cd server
+   npm run dev
+   ```
+2. Start the client.
+   ```
+   cd client
+   npm start
    ```
 
 # client
