@@ -2,16 +2,32 @@
 
 > Testing mailgun for sending and keeping track of emails.
 
-@weaponsforge  
-20210414
+### Requirements
 
-## Getting Started with Create React App
+- NodeJS version 12.16.3 or higher
+
+### Content
+
+- [Installation](#installation)
+- [client](#client)
+- [server](#server)
+
+## Installation
+
+1. Clone this repository.
+`git clone https://github.com/weaponsforge/testing-mailgun/tree/express-server.git`
+2. Install dependencies.
+`npm install`
+
+# client
+
+**Directory:** `/client`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the `client` project directory, you can run:
 
 ### `npm start`
 
@@ -30,3 +46,28 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+---
+
+# server
+
+**Directory:** `/server`
+
+Local express server for hosting the built client files and running other backend api.\
+**Base API url:** http://localhost:3001/api
+
+
+
+## Available Scripts
+
+### `npm start`
+
+Run the local express server for production environment. Requires the `/build` output from the client `npm run build` script.
+
+### `npm run dev`
+
+Run the local express server for development environment.
+
+@weaponsforge  
+20210414
+
