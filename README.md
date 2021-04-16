@@ -23,13 +23,22 @@
      npm install
      ```
    - Create a **.env** file inside the **/client** directory.
-      - Copy and paste the content of **.env.example** into this file.
+      - Copy and paste the content of **/client/.env.example** into this file.
       - Replace the value of `REACT_APP_BASE_API_URL` with your target api url.
 3. Install the **server** dependencies.  
-   ```
-   cd server
-   npm install
-   ```
+   - ```
+     cd server
+     npm install
+     ```
+   - Create a **.env** file inside the **/server** directory.
+      - Copy and paste the content of **/server/.env.example** into this file.
+      - Replace the variable values in **.env** with your own account.  
+         ```
+         MAILGUN_API_KEY
+         MAILGUN_DOMAIN
+         SENDING_EMAIL_ADDRESSES
+         SENDINBLUE_API_KEY
+         ```
 
 ## Usage
 
