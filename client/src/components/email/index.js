@@ -14,7 +14,7 @@ function Email ({ state, handleSubmit, handleChange, handleClear }) {
     <Page>
       <Typography variant='h5'>Email</Typography>
       <Typography variant='body1'>
-        Send the message as an email.
+        Send an email message using Mailgun.
       </Typography>
 
       <TextField

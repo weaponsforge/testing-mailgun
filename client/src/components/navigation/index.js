@@ -18,7 +18,10 @@ function Navigation () {
             <Typography variant='subtitle1' component='span'>Home</Typography>
           </Link> &nbsp;| &nbsp;
           <Link to='/email'>
-            <Typography variant='subtitle1' component='span'>Email</Typography>
+            <Typography variant='subtitle1' component='span'>Mailgun</Typography>
+          </Link> &nbsp;| &nbsp;
+          <Link to='/sendinblue'>
+            <Typography variant='subtitle1' component='span'>Sendinblue</Typography>
           </Link>
         </CardContent>
       </Card>

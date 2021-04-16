@@ -1,8 +1,15 @@
 const express = require('express')
 const router = express.Router()
 
-const mailerMailgun = require('./email-mailgun')
+const mailgun = require('./mailgun')
+const { contacts, emails } = require('./sendinblue')
 
-router.post('/mailgun', mailerMailgun.post)
+// ----- MAILGUN -----
+router.post('/mailgun', mailgun.post)
+
+// ----- SENDINBLUE -----
+router.get('/sendinblue/contacts', contacts.get)
+router.post('/sendinblue/contactsCreate', contacts.post)
+router.post('/sendinblue', emails.post)
 
 module.exports = router
