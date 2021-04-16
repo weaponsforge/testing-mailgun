@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import Email from '../../components/email'
+import EmailSendinblue from '../../components/email_sendinblue'
 
 const defaultState = {
-  message: '', email: 'acetiercel@yahoo.com', subject: 'Mailgun Testing', msg: '', loading: false
+  message: '', email: '', subject: 'Sendinblue Testing', msg: '', loading: false
 }
 
-function EmailContainer () {
+function EmailSendinblueContainer () {
   const [state, setState] = useState(defaultState)
 
   const handleChange = (e) => {
@@ -27,16 +27,17 @@ function EmailContainer () {
     console.log(state)
 
     try {
-      await axios.post('http://localhost:3001/api/mailgun', state)
+      setState(prev => ({ ...prev, loading: true }))
+      await axios.post(`${process.env.REACT_APP_BASE_API_URL}/sendinblue`, state)
     } catch (err) {
-      msg = `Error: ${err.response.data}`
+      msg = (err.response) ? `Error: ${err.response.data}` : `Error: ${err.message}`
     }
 
     setState(prev => ({ ...defaultState, msg }))
   }
 
   return (
-    <Email
+    <EmailSendinblue
       state={state}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
@@ -45,4 +46,4 @@ function EmailContainer () {
   )
 }
 
-export default EmailContainer
+export default EmailSendinblueContainer
