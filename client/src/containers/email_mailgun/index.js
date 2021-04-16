@@ -27,7 +27,7 @@ function EmailMailgunContainer () {
 
     try {
       setState(prev => ({ ...prev, loading: true }))
-      await axios.post('http://localhost:3001/api/mailgun', state)
+      await axios.post(`${process.env.REACT_APP_BASE_API_URL}/mailgun`, state)
     } catch (err) {
       msg = (err.response) ? `Error: ${err.response.data}` : `Error: ${err.message}`
     }

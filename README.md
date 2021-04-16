@@ -14,10 +14,21 @@
 
 ## Installation
 
-1. Clone this repository.
+1. Clone this repository.  
 `git clone https://github.com/weaponsforge/testing-mailgun/tree/express-server.git`
-2. Install dependencies.
-`npm install`
+2. Install the **client** dependencies.  
+   - ```
+     cd client
+     npm install
+     ```
+   - Create a **.env** file inside the **/client** directory.
+      - Copy and paste the content of **.env.example** into this file.
+      - Replace the value of `REACT_APP_BASE_API_URL` with your target api url.
+3. Install the **server** dependencies.  
+   ```
+   cd server
+   npm install
+   ```
 
 # client
 
