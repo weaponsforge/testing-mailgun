@@ -1,4 +1,4 @@
-const { createContact, getContact } = require('./utils')
+const { createContact, getContact } = require('./methods')
 
 // Get contact info using email
 // Returns {"email":"some_email@gmail.com","id":5, ... }

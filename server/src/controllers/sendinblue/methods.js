@@ -1,4 +1,4 @@
-const { SibApiV3Sdk, contactsApi } = require('./sendinblue-client')
+const { SibApiV3Sdk, contactsApi } = require('../../utils/sendinblue-client')
 
 // Create a new contact
 const createContact = async (email) => {

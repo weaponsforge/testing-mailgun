@@ -1,5 +1,5 @@
-const { SibApiV3Sdk } = require('./sendinblue-client')
-const { composeEmailHtml, getContact, createContact } = require('./utils')
+const { SibApiV3Sdk } = require('../../utils/sendinblue-client')
+const { composeEmailHtml, getContact, createContact } = require('./methods')
 
 // Send an email
 module.exports.post = async (req, res) => {

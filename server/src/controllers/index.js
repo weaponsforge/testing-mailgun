@@ -6,6 +6,7 @@ const { contacts, emails } = require('./sendinblue')
 
 // ----- MAILGUN -----
 router.post('/mailgun', mailgun.post)
+router.post('/mailgun/scheduled', mailgun.postScheduled)
 
 // ----- SENDINBLUE -----
 router.get('/sendinblue/contacts', contacts.get)
