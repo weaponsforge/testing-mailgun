@@ -8,10 +8,6 @@ module.exports.post = async (req, res) => {
   let contact
   let errMsg = ''
 
-  if (!email || !subject || !message) {
-    return res.status(400).send('Missing parameter.')
-  }
-
   try {
     // CHeck if contact exists
     contact = await getContact(email)

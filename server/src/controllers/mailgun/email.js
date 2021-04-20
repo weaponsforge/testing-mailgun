@@ -3,11 +3,6 @@ const mg = require('../../utils/mailgun-client')
 // Send an email using mailgun
 const email = async (req, res) => {
   const { message, email, subject } = req.body
-  console.log(req.body)
-
-  if (!message || !email || !subject) {
-    return res.status(400).send('Missing parameter.')
-  }
 
   const data = {
     from: `admin@${process.env.MAILGUN_DOMAIN}`,

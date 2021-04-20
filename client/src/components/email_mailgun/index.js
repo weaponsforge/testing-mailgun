@@ -5,10 +5,11 @@ import Button from '@material-ui/core/button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
+import { CustomTimeSettings } from '../../domain/email_mailgun'
 import Page from '../page'
 import useStyles from './styles'
 
-function EmailMailgun ({ state, handleSubmit, handleChange, handleClear }) {
+function EmailMailgun ({ state, handleSubmit, handleSwitch, handleChange, handleClear }) {
   const classes = useStyles()
 
   return (
@@ -18,6 +19,12 @@ function EmailMailgun ({ state, handleSubmit, handleChange, handleClear }) {
         Send an email message using Mailgun.
       </Typography>
 
+      <CustomTimeSettings
+        state={state}
+        handleSwitch={handleSwitch}
+        handleChange={handleChange}
+      />
+
       <TextField
         className={classes.textArea}
         id='email'
@@ -25,7 +32,6 @@ function EmailMailgun ({ state, handleSubmit, handleChange, handleClear }) {
         autoFocus
         margin='dense'
         variant='outlined'
-        rows={10}
         fullWidth
         disabled={state.loading}
         onChange={(e) => handleChange(e)}
@@ -95,6 +101,8 @@ EmailMailgun.propTypes = {
   state: PropTypes.object,
   /** Handle the submit button click. */
   handleSubmit: PropTypes.func,
+  /** Handle the switch button toggle. */
+  handleSwitch: PropTypes.func,
   /** Handle the email text update. */
   handleChange: PropTypes.func,
   /** Handle the clear button click. */

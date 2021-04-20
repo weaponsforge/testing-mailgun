@@ -8,13 +8,22 @@ const mg = require('../../utils/mailgun-client')
 const emailScheduled = async (req, res) => {
   const { message, email, subject, interval, starttime, maxhrs } = req.body
   
-  if (!message || !email || !subject) {
-    return res.status(400).send('Missing parameter.')
+  if (!interval || !maxhrs) {
+    return res.status(400).send('Missing time parameter.')
+  }
+
+  if (parseInt(maxhrs) > 72) {
+    return res.status(400).send('Max hours cannot exceed 72 hrs.')
+  }
+
+  if (parseInt(interval) < 1 || parseInt(interval) > parseInt(maxhrs)) {
+    return res.status(400).send('Invalid time interval or max hours.')
   }
 
   const DATE_RFC2822 = "ddd, DD MMM YYYY HH:mm:ss ZZ"
-  const maxHrs = maxhrs || 72
-  const intervalHrs = interval || 6
+  const maxHrs = parseInt(maxhrs) || 72
+  const intervalHrs = parseInt(interval) || 6
+  const startTime = starttime || '10:00:00'
 
   const now = moment()
   const mails = []
@@ -22,7 +31,7 @@ const emailScheduled = async (req, res) => {
   const data = {
     from: `admin@${process.env.MAILGUN_DOMAIN}`,
     to: email,
-    subject: '${subject} #1',
+    subject: `${subject} #1`,
     text: message,
     'o:deliverytime': moment().format(DATE_RFC2822)
   }
@@ -36,14 +45,15 @@ const emailScheduled = async (req, res) => {
   }
 
   // Send subsequent messages
-  const time = starttime
-    ? moment(`${now.format('ddd, DD MMM YYYY')} ${starttime}`)
+  const nowFormatted = moment().format('YYYY-MM-DD')
+  const time = startTime
+    ? moment(`${nowFormatted} ${startTime}`)
     : now
 
   for (let i = 1; i < maxHrs / intervalHrs; i += 1) {
     let sendTime = moment(time).add(i * intervalHrs, 'hours')
   
-    console.log(sendTime.format(DATE_RFC2822))
+    console.log(`${i} :: ${sendTime.format(DATE_RFC2822)}`)
     mails.push(mg.messages().send(data))
   }
 
